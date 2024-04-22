@@ -118,6 +118,10 @@ Portainer is very useful to change existing contains, however sicne it does not 
 To connect with the raspberry PI I prefer using the tool [https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html](PuTTY).
 To connect to it, you need to configure the IP address and the port ``22``. After that click open and type in the user (default is ``pi``) and the password.
 
+### MQTT
+
+
+
 ### ebusd
 
 **eBUSd**(eamon) is a daemon for handling communication with eBUS devices connected to a 2-wire bus system ("energy bus" used by numerous heating systems).
@@ -130,8 +134,14 @@ You can use every ssh tool for that, I prefer [FileZilla](https://filezilla-proj
 You can create the ebusd container though the following script. The ports may depend on your system.
 
 ```sh
-docker run --name ebusd -it -p 8888 john30/ebusd --scanconfig -d enh:192.168.1.135:5001 --latency=10 -r
+docker run --name ebusd --restart=always -p 8888:8888 -p 8080:8080 john30/ebusd -d enh:IP_ADDRESS_EBUS_ADAPTER:9999 --latency=10 --configpath=/etc/ebusd/ochsner --pollinterval=5 --mqtthost=IP_ADDRESS_RASPBERRY_PI --mqttport=1883
 ```
+The ``IP_ADDRESS_EBUS_ADAPTER`` need to be replaced by the IP of your eBUS adapter. The ``IP_ADDRESS_RASPBERRY_PI`` need to be replaced by the IP of your raspberry PI.
+
+#### Testing ebusd signals
+
+In order to test whether your MQTT broker recieves messages from the ebusd, you can use the tool ``MQTT Explorer``. It can be downloaded at https://mqtt-explorer.com/.
+Once you have setup the eBUS adapter and the docker container ebusd and mqtt, you should see incoming messages with topic ``ebusd/*``.
 
 ### Node-RED
 
@@ -142,3 +152,8 @@ You can create the nodered container though the following script. The ports may 
 ```sh
 docker run --name nodered --restart=always -e TZ=Europe/Berlin -p 502:502 -p 1880:1880 -p 1883:1883 -p 3671:3671 -p 9522:9522/udp -v /home/pi/data/node_red_data:/data nodered/node-red:latest
 ```
+
+#### Node-RED Palletes
+
+MQTT is already part of nodered. You need to install the package ``node-red-dashboard`` by navigating to ``manage palette`` in the nodered web UI. The web UI can be reached by opening a browser and navigating to ``IP_ADDRESS_RASPBERRY_PI:1880``.
+
