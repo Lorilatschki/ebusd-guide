@@ -1,0 +1,27 @@
+@startuml  
+package "Heating System" {  
+    [Heating Pump] as Pump  
+    [eBus Adapter] as Adapter  
+    [Router] as Router  
+  
+    node "Raspberry Pi" as Pi {  
+        node "Docker Host" as Docker {  
+            component [Node-RED] as NodeRed  
+            component [ebusd] as Ebusd  
+            component [MQTT Broker] as MqttBroker  
+            component [Portainer] as Portainer  
+        }  
+    }  
+  
+    Pi ..> Adapter : uses  
+    Adapter ..> Pump : controls  
+    Docker ..> Adapter : communicates with  
+    NodeRed ..> MqttBroker : publishes/subscribes  
+    Ebusd ..> MqttBroker : publishes/subscribes  
+    Portainer ..> Docker : manages  
+  
+    Router ..> Pi : network connection  
+    Router ..> Adapter : network connection  
+}  
+  
+@enduml
