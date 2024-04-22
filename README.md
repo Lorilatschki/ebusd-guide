@@ -15,9 +15,29 @@ The following links are very helpful and might help understanding different topc
 
 ## Component overview
 
-```plantuml
-
+```mermaid
+graph LR  
+    subgraph Heating System  
+        Pump[Heating Pump] -->|controls| Adapter[eBus Adapter]  
+        Pi[Raspberry Pi] -->|uses| Adapter  
+        Router[Router] -->|network connection| Pi  
+        Router -->|network connection| Adapter  
   
+        subgraph Raspberry Pi  
+            subgraph Docker Host  
+                NodeRed[Node-RED]  
+                Ebusd[ebusd]  
+                MqttBroker[MQTT Broker]  
+                Portainer[Portainer]  
+            end  
+  
+            Docker -->|communicates with| Adapter  
+            NodeRed -->|publishes/subscribes| MqttBroker  
+            Ebusd -->|publishes/subscribes| MqttBroker  
+            Portainer -->|manages| Docker  
+        end  
+    end  
+
 ```
 
 The heating system is composed of several interconnected components that work together to control and monitor the heating pump. The central control unit of this system is a Raspberry Pi, which is connected to the network via a general router.
