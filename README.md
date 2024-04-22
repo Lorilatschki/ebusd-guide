@@ -1,6 +1,6 @@
 # ebusd-ochsner
 
-This repository describes how to setup a infrastructure to control a eBUS based heating pump, in this case a Ochsner GMSW 10 HK plus (OTE3). You can setup the same of every other eBUS based heading pump, the only difference are the ebusd specific configurations.
+This repository describes how to setup a infrastructure to control a eBUS based heating pump, in this case a Ochsner GMSW 10 HK plus (OTE3). You can setup the same for every other eBUS based heading pump, the only difference are the ebusd specific configurations.
 
 ## Helpful links
 
@@ -16,6 +16,7 @@ The following links are very helpful and might help understanding different topc
 ## Component overview
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 graph LR  
     subgraph Heating System  
         Pump[Heating Pump] -->|controls| Adapter[eBus Adapter]  
@@ -60,6 +61,7 @@ Within the Raspberry Pi, a Docker host is running to manage and isolate differen
 
 ### Network Connections
 
-The Raspberry Pi and the eBus Adapter both connect to the network through the Router, enabling remote access and control. This setup allows for monitoring and managing the heating system from a networked computer or a smart device.
+The Raspberry Pi and the eBus Adapter both connect to the network through the Router, enabling remote access and control. This setup allows for monitoring and managing the heating system from a networked computer or a smart device. 
+>You can also connect the eBUS adapter via usb to your raspberry PI, there it might be necessary to install ebusd directly on you raspberry PI instead of running them inside a docker container.
 
 The Docker containers on the Raspberry Pi communicate with each other and with external devices through the MQTT Broker and eBus Adapter, creating a robust and flexible control system for the heating pump.
