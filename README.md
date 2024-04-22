@@ -61,7 +61,68 @@ Within the Raspberry Pi, a Docker host is running to manage and isolate differen
 
 ### Network Connections
 
-The Raspberry Pi and the eBus Adapter both connect to the network through the Router, enabling remote access and control. This setup allows for monitoring and managing the heating system from a networked computer or a smart device. 
+The Raspberry Pi and the eBus Adapter both connect to the network through the Router, enabling remote access and control. This setup allows for monitoring and managing the heating system from a networked computer or a smart device.
 >You can also connect the eBUS adapter via usb to your raspberry PI, there it might be necessary to install ebusd directly on you raspberry PI instead of running them inside a docker container.
 
 The Docker containers on the Raspberry Pi communicate with each other and with external devices through the MQTT Broker and eBus Adapter, creating a robust and flexible control system for the heating pump.
+
+## Step by step guide
+
+The following steps provide a step by step guide to setup such an environment from the scratch.
+
+### Raspberry PI
+
+By following the [getting started](https://www.raspberrypi.com/documentation/computers/getting-started.html) you setup you raspberry PI. You should wire it with a ethernet cable directly to router/switch.
+
+### Docker on Raspberry PI
+
+Here is a [Install Docker on Raspberry Pi](https://www.simplilearn.com/tutorials/docker-tutorial/raspberry-pi-docker) guide you can follow.
+
+### eBUS Adapter Shield v5
+
+You need to wire the adapter with your headpump via a eBUS two-core cable. You can take a usual KNX wire for that EIB Y-(ST)-Y 2x2x0,8 or EIB Y-(ST)-Y 2x2x0,8. You should also add use a USR-ES1 Modul mit W5500 to connect your adapter with you network via ethernet cable.
+For detailed instruction refer to [eBUS Adapter Shield v5](https://adapter.ebusd.eu/v5/).
+
+### Docker Container general
+
+Since container are running in an isolated environment similar to a sandbox, it is recommended to map a volume to each container in order to persist data. Best practise is, to create a ``/home/pi/data`` folder where you store you container specific config files.
+Following this aproche you end up with the following structure:
+
+- ``/home/pi/data/ebusd``
+- ``/home/pi/data/mqtt_data``
+- ``/home/pi/data/node_red_data``
+- ``/home/pi/data/portainer_data``
+
+### Portainer
+
+Portainer is a management tool that provides a user-friendly interface to manage the Docker host and containers. This way you can easily create, start and stop you container via a webserver.
+You can follow the [How to Install Portainer on a Raspberry Pi](https://www.wundertech.net/portainer-raspberry-pi-install-how-to-install-docker-and-portainer/) guide.
+
+Once you are finished, you can add further container through portainer itself.
+
+#### Updating portainer
+
+Since updating portainer through portainer UI isn't possible, the following script might be helpful.
+
+```sh
+docker stop portainer
+docker rm portainer
+docker pull portainer/portainer-ce:latest
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /home/pi/data/portainer_data:/data portainer/portainer-ce:latest
+```
+
+### PuTTY
+
+Portainer is very useful to change existing contains, however sicne it does not provide to import a container setup, you need to configure it manually though the user interface. Therefor I prefer to setup the container via ssh console. Once it is created, chanching parameters becomes very convenient.
+
+To connect with the raspberry PI I prefer using the tool [https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html](PuTTY).
+To connect to it, you need to configure the IP address and the port ``22``. After that click open and type in the user (default is ``pi``) and the password.
+
+### ebusd
+
+**eBUSd**(eamon) is a daemon for handling communication with eBUS devices connected to a 2-wire bus system ("energy bus" used by numerous heating systems).
+
+
+#### ebusd configuration
+
+Copy the configuration from 
