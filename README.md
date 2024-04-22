@@ -130,7 +130,7 @@ You can use every ssh tool for that, I prefer [FileZilla](https://filezilla-proj
 You can create the ebusd container though the following script. The ports may depend on your system.
 
 ```sh
-TODO add
+docker run --name ebusd -it -p 8888 john30/ebusd --scanconfig -d enh:192.168.1.135:5001 --latency=10 -r
 ```
 
 ### Node-RED
