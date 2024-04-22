@@ -127,8 +127,18 @@ To connect to it, you need to configure the IP address and the port ``22``. Afte
 Copy the configuration from https://github.com/Lorilatschki/ebusd-ochsner/tree/main/configuration/ochsner to you ``/home/pi/data/ebusd/ochsner``.
 You can use every ssh tool for that, I prefer [FileZilla](https://filezilla-project.org/download.php?platform=win64).
 
-#### ebusd container
+You can create the ebusd container though the following script. The ports may depend on your system.
 
 ```sh
 TODO add
+```
+
+### Node-RED
+
+Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. Since I have my dashboard already in nodered, I have integrated the eBUS there as well.
+
+You can create the nodered container though the following script. The ports may depend on your system.
+
+```sh
+docker run --name nodered --restart=always -e TZ=Europe/Berlin -p 502:502 -p 1880:1880 -p 1883:1883 -p 3671:3671 -p 9522:9522/udp -v /home/pi/data/node_red_data:/data nodered/node-red:latest
 ```
