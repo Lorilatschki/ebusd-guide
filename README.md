@@ -157,6 +157,19 @@ docker run --name ebusd --restart=always -p 8888:8888 -p 8080:8080 john30/ebusd 
 ```
 The ``IP_ADDRESS_EBUS_ADAPTER`` need to be replaced by the IP of your eBUS adapter. The ``IP_ADDRESS_RASPBERRY_PI`` need to be replaced by the IP of your raspberry PI.
 
+#### Adapting ebusd configuration
+
+The addresses used for my heading pump might not fit yours. In the configuration, you find the eBUS-ID next to each configuration row in the comments field. It has the format XX-XXX for instance the ``setpoint desired hotwater normal`` with id ``05-051``.
+To find the correct address in your environment, you need to use the ebusd ``ebusctl grap result all decode`` command.
+
+1) To connect to the ebusd container via console go to the container in the portainer web UI and click the ``Exec Console`` and click ``Connect``.
+![image](pictures/ebusd_console.png)
+2) Switch to your mapped volume via ``cd etc/ebusd/ochsner/``
+3) Run the ``ebusctl grap result all decode >> decode.all.txt`` to write the decode content into the ``etc/ebusd/ochsner/decode.all.txt`` file
+4) Connect to the raspberry pi via ssh explorer e.g. FileZilla and download the file to you local computer
+5) Open a file viewer e.g. notepad++ and search for the desired eBUS-ID
+6) 
+
 #### Testing ebusd signals
 
 In order to test whether your MQTT broker recieves messages from the ebusd, you can use the tool ``MQTT Explorer``. It can be downloaded at https://mqtt-explorer.com/.
