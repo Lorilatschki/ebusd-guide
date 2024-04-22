@@ -122,7 +122,13 @@ To connect to it, you need to configure the IP address and the port ``22``. Afte
 
 **eBUSd**(eamon) is a daemon for handling communication with eBUS devices connected to a 2-wire bus system ("energy bus" used by numerous heating systems).
 
-
 #### ebusd configuration
 
-Copy the configuration from 
+Copy the configuration from https://github.com/Lorilatschki/ebusd-ochsner/tree/main/configuration/ochsner to you ``/home/pi/data/ebusd/ochsner``.
+You can use every ssh tool for that, I prefer [FileZilla](https://filezilla-project.org/download.php?platform=win64).
+
+#### ebusd container
+
+```sh
+TODO add
+```
