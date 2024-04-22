@@ -198,6 +198,7 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
 
 <details>
   <summary>nodered json export</summary>
+  
 ```json
 [
     {
@@ -381,6 +382,7 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
 
 <details>
 <summary>nodered json export</summary>
+
 ```json
 [
     {
