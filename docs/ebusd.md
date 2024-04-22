@@ -54,11 +54,16 @@ w,,temperature.hotwater.normal.set,05-051 Setpoint desired hot water temperature
 
 ## Testing ebusd signals
 
-In order to test whether your MQTT broker recieves messages from the ebusd, you can use the tool ``MQTT Explorer``. It can be downloaded at https://mqtt-explorer.com/.
+In order to test whether your MQTT broker recieves messages from the ebusd, you can use the tool ``MQTT Explorer``. It can be downloaded [here](https://mqtt-explorer.com/).
+
+### Read Signals
+
 Once you have setup the eBUS adapter, the docker containers ebusd and mqtt, you should see incoming messages with topic ``ebusd/*``.
 
 ![image](pictures/mqtt_explorer.png)
 
-To verify if you can change a writable eBUS address, you must append /set to the topic, switch to raw format, type in the desired value and click publish. To verify if the value has been changed by your headpump, go to the OTE display and double check it.
+### Write Signals
+
+To verify if you can change a writable eBUS address, you must append ``/set`` to the topic, switch to raw format, type in the desired value and click publish. To verify if the value has been changed by your headpump, go to the OTE display and double check it.
 
 ![image](pictures/mqtt_explorer_set.png)
