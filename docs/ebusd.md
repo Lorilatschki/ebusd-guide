@@ -49,7 +49,7 @@ r1,,temperature.hotwater.normal.set,05-051 Setpoint desired hot water temperatur
 w,,temperature.hotwater.normal.set,05-051 Setpoint desired hot water temperature,,,,6580000e,,,tempt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```
 10) Connect to your raspberry Pi and copy the config to the ``/home/pi/data/ebusd/ochsner`` folder and **override** the existing one
-11) In order to reload the configuration by ebusd, you can simply recreate the container through portainer by clicking the ``Recreate`` button
+11) In order to reload the configuration by ebusd, you can simply recreate the container through portainer by clicking the ``Recreate`` button. **It is not enough to stop and restrat the container!**
 ![image](pictures/portainer_recreate.png)
 
 ## Testing ebusd signals
