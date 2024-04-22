@@ -120,7 +120,20 @@ To connect to it, you need to configure the IP address and the port ``22``. Afte
 
 ### MQTT
 
+MQTT is a standard messaging protocol designed specifically for use in IoT applications. It requires a so called MQTT broker.
+The broker is at the heart of the system. It is responsible for receiving all messages, filtering them, and sending them to the subscribers, here the MQTT clients. An MQTT broker can potentially handle millions of connected MQTT clients.
 
+You can create the ebusd container though the following script. The ports may depend on your system.
+
+```sh
+run -d -p 1883:1883 --name mqtt --restart=always -v /home/pi/data/mqtt_data/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto:2
+```
+
+The mosquitto.conf can be changed to your needs, here is a minimal example which I use.
+
+```conf
+allow_anonymous true
+```
 
 ### ebusd
 
@@ -141,7 +154,13 @@ The ``IP_ADDRESS_EBUS_ADAPTER`` need to be replaced by the IP of your eBUS adapt
 #### Testing ebusd signals
 
 In order to test whether your MQTT broker recieves messages from the ebusd, you can use the tool ``MQTT Explorer``. It can be downloaded at https://mqtt-explorer.com/.
-Once you have setup the eBUS adapter and the docker container ebusd and mqtt, you should see incoming messages with topic ``ebusd/*``.
+Once you have setup the eBUS adapter, the docker containers ebusd and mqtt, you should see incoming messages with topic ``ebusd/*``.
+
+![image](mqtt_explorer.png)
+
+To verify if you can change a writable eBUS address, you must append /set to the topic, switch to raw format, type in the desired value and click publish. To verify if the value has been changed by your headpump, go to the OTE display and double check it.
+
+![image](mqtt_explorer_set.png)
 
 ### Node-RED
 
@@ -156,4 +175,3 @@ docker run --name nodered --restart=always -e TZ=Europe/Berlin -p 502:502 -p 188
 #### Node-RED Palletes
 
 MQTT is already part of nodered. You need to install the package ``node-red-dashboard`` by navigating to ``manage palette`` in the nodered web UI. The web UI can be reached by opening a browser and navigating to ``IP_ADDRESS_RASPBERRY_PI:1880``.
-
