@@ -42,21 +42,23 @@ graph LR
 
 The heating system is composed of several interconnected components that work together to control and monitor the heating pump. The central control unit of this system is a Raspberry Pi, which is connected to the network via a general router.
 
-**Components:**
+### Components
+
 - **Heating Pump:** The primary device responsible for circulating heat transfer fluid throughout the heating system.
 - **eBus Adapter:** An interface device that enables communication between the heating pump and the Raspberry Pi.
 - **Router:** A network device that facilitates data communication between the Raspberry Pi, the eBus Adapter, and potentially other networked devices.
 - **Raspberry Pi:** A compact computer that hosts a Docker environment and serves as the brain of the system. It uses the eBus Adapter to interface with the heating pump.
 
-**Docker Host on Raspberry Pi:**
+### Docker Host on Raspberry Pi
 
 Within the Raspberry Pi, a Docker host is running to manage and isolate different software components using containers. The following containers are in operation:
+
 - **Node-RED:** A programming tool for wiring together hardware devices, APIs, and online services in new and interesting ways. It can be used to create automation flows.
 - **ebusd:** A daemon for handling communication with eBus devices like the heating pump. It interfaces with the eBus Adapter to control and monitor the pump.
 - **MQTT Broker:** A message broker that supports the MQTT protocol. It allows for efficient and reliable communication between the Node-RED and ebusd containers.
 - **Portainer:** A management tool that provides a user-friendly interface to manage the Docker host and containers.
 
-**Network Connections:**
+### Network Connections
 
 The Raspberry Pi and the eBus Adapter both connect to the network through the Router, enabling remote access and control. This setup allows for monitoring and managing the heating system from a networked computer or a smart device.
 
