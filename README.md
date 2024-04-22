@@ -62,7 +62,7 @@ Within the Raspberry Pi, a Docker host is running to manage and isolate differen
 ### Network Connections
 
 The Raspberry Pi and the eBus Adapter both connect to the network through the Router, enabling remote access and control. This setup allows for monitoring and managing the heating system from a networked computer or a smart device.
->You can also connect the eBUS adapter via usb to your raspberry PI, there it might be necessary to install ebusd directly on you raspberry PI instead of running them inside a docker container.
+>You can also connect the eBUS adapter via usb to your raspberry Pi, there it might be necessary to install ebusd directly on you raspberry Pi instead of running them inside a docker container.
 
 The Docker containers on the Raspberry Pi communicate with each other and with external devices through the MQTT Broker and eBus Adapter, creating a robust and flexible control system for the heating pump.
 
@@ -70,7 +70,7 @@ The Docker containers on the Raspberry Pi communicate with each other and with e
 
 The following steps provide a step by step guide to setup such an environment from the scratch.
 
-1) [Raspberry PI and Docker](./docs/raspberry_pi_docker.md)
+1) [Raspberry Pi and Docker](./docs/raspberry_pi_docker.md)
 2) [eBUS Adapter Shield v5](./docs/ebus_adapter.md)
 3) [Portainer](./docs/portainer.md)
 4) [MQTT](./docs/mqtt.md)

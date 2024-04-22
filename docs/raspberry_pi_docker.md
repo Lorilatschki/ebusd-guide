@@ -1,8 +1,8 @@
-# Raspberry PI and Docker
+# Raspberry Pi and Docker
 
-By following the [getting started](https://www.raspberrypi.com/documentation/computers/getting-started.html) you setup you raspberry PI. You should wire it with a ethernet cable directly to router/switch.
+By following the [getting started](https://www.raspberrypi.com/documentation/computers/getting-started.html) you setup you raspberry Pi. You should wire it with a ethernet cable directly to router/switch.
 
-## Docker on Raspberry PI
+## Docker on Raspberry Pi
 
 Here is a [Install Docker on Raspberry Pi](https://www.simplilearn.com/tutorials/docker-tutorial/raspberry-pi-docker) guide you can follow.
 
