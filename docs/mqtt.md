@@ -9,7 +9,7 @@ You can create the ebusd container though the following script. The ports may de
 docker run -d -p 1883:1883 --name mqtt --restart=always -v /home/pi/data/mqtt_data/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto:2
 ```
 
-The mosquitto.conf can be changed to your needs, here is a minimal example which I use.
+The ``mosquitto.conf`` can be changed to your needs, here is a minimal example which I use to allow anonymous communication.
 
 ```conf
 allow_anonymous true
