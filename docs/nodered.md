@@ -16,11 +16,11 @@ MQTT is already part of nodered (network). You need to install the package ``nod
 
 ## Flows
 
-A Flow is represented as a tab within the editor workspace and is the main way to organise nodes. The term “flow” is also used to informally describe a single set of connected nodes. So a flow (tab) can contain multiple flows (sets of connected nodes).
+A Flow is represented as a tab within the editor workspace and is the main way to organize nodes. The term “flow” is also used to informally describe a single set of connected nodes. So a flow (tab) can contain multiple flows (sets of connected nodes).
 
 ### MQTT In
 
-To read a topic from the mqtt broker you need to add a ``mqtt in`` element and configure the server by using IP_ADDRESS_RASPBERRY_PI:1883. The output can be connected to a convert function to extract the raw value of the message and send it to a lable of the dashboard.
+To read a topic from the mqtt broker you need to add a ``mqtt in`` element and configure the server by using IP_ADDRESS_RASPBERRY_PI:1883. The output can be connected to a convert function to extract the raw value of the message and send it to a label of the dashboard.
 
 > The nodered dashboard can be accessed via IP_ADDRESS_RASPBERRY_PI:1880
 
@@ -205,7 +205,7 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
 
 ### MQTT Out
 
- To write a message to a topic, you need to add a ``mqtt out`` element and configure the server. This can be combined to show the current mode of the headpump and make it changeable though a combobox.
+ To write a message to a topic, you need to add a ``mqtt out`` element and configure the server. This can be combined to show the current mode of the head bump and make it changeable though a combobox.
  > Notice that you need to add a ``/set`` suffix to the mqtt topic.
 
 ![image](pictures/mqtt_out.png)

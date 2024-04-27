@@ -143,6 +143,6 @@ This way you can check whether a previouse set has been accepted by your heading
 
 ### Write Signals
 
-To verify if you can change a writable eBUS address, you must append ``/set`` to the topic, switch to raw format, type in the desired value and click publish. To verify if the value has been changed by your headpump, go to the OTE display and double check it.
+To verify if you can change a writable eBUS address, you must append ``/set`` to the topic, switch to raw format, type in the desired value and click publish. To verify if the value has been changed by your head bump, go to the OTE display and double check it.
 
 ![image](pictures/mqtt_explorer_set.png)

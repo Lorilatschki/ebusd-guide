@@ -1,6 +1,6 @@
 # ebusd-ochsner
 
-This repository describes how to setup a infrastructure to control a eBUS based heating pump, in this case a Ochsner GMSW 10 HK plus (OTE3). You can setup the same for every other eBUS based heading pump, the only difference are the ebusd specific configurations.
+This repository describes how to setup a infrastructure to control a eBUS based heating pump, in this case a ``Ochsner GMSW 10 HK plus`` (OTE3). You can setup the same for every other eBUS based heading pump, the only difference are the ebusd specific configurations.
 
 ## Helpful links
 
