@@ -387,7 +387,7 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
 ```
 </details>
 
-The items on the dashboard look similar to that. _I have changed my global css style, that's why it might look different than you used to.
+The items on the dashboard look similar to that. I have changed my global css style, that's why it might look different than you used to.
 
 ![image](pictures/dashboard1.png)
 
