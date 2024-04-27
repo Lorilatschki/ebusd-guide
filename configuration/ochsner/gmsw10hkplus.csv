@@ -14,6 +14,8 @@ r1,,mode.heating,03-050 Heating operation choice,,,,03b2004a,,,param,,,,,,status
 w,,mode.heating,03-050 Heating operation choice,,,,03b2004a,,,status,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 r1,,mode.heatpump,09-075 Heatpump operation choice,,,,61800002,,,param,,,,,,status,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 w,,mode.heatpump,09-075 Heatpump operation choice,,,,61800002,,,status,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+r1,,mode.auxheating,09-075 Aux heating operation choice,,,,09cb0044,,,param,,,,,,status,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+w,,mode.auxheating,09-075 Aux heating operation choice,,,,09cb0044,,,status,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 r1,,mode.hotwater,03-050 Hotwater operation choice,,,,05b2004e,,,param,,,,,,status,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 w,,mode.hotwater,03-050 Hotwater operation choice,,,,05b2004e,,,status,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #r1,,applicationtype.heating,07-076 Application type heating circuit => 0:heating circuit not active; 1:Pump circuit without cooling; 2:Pump circuit with cooling; 3:Mixer circuit without cooling; 4:Mixer circuit with cooling,,,,67810008,,,param,,,,,,status,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
