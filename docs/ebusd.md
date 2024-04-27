@@ -136,6 +136,9 @@ In order to test whether your MQTT broker recieves messages from the ebusd, you 
 
 Once you have setup the eBUS adapter, the docker containers ebusd and mqtt, you should see incoming messages with topic ``ebusd/*``.
 
+You can also request a value on demand, therefor similar to writing a signal, you need to append ``/get`` to the topic you want to get a value from.
+This way you can check whether a previouse set has been accepted by your heading pump without checking it at the device itself.
+
 ![image](pictures/mqtt_explorer.png)
 
 ### Write Signals
