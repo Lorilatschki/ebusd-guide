@@ -134,27 +134,24 @@ You can also pass in a filter, either as regular expression or as concrete eBUS 
 ```ps1
 .\scan_ebus_ids.ps1 PATH_TO_DECODED_FILE "00-007"
 ```
-The output is then filtered to only print out the desired eBUS ID:
-<details>
-  <summary>scan output</summary>
+this will result in the following output:
 
 ```log
 00-007 -> 00870042
 ```
-</details>
+
+>Regular expressions are possible
 
 ```ps1
 .\scan_ebus_ids.ps1 PATH_TO_DECODED_FILE "02-07[02]"
 ```
-The output is then filtered to only print out the desired eBUS ID:
-<details>
-  <summary>scan output</summary>
+
+will print out all eBUS-IDs matching 02-070 or 02-072
 
 ```log
 02-070 -> 02c60040
 02-072 -> 02c80040
 ```
-</details>
 
 ## Testing ebusd signals
 
