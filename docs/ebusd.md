@@ -128,6 +128,34 @@ The output looks similar to that:
 
 >Sometime there are multiple addresses behind a eBUS-ID, therefor you need to take a look at the data in order to find the desired correct eBUS address.
 
+### Filter
+
+You can also pass in a filter, either as regular expression or as concrete eBUS ID.
+```ps1
+.\scan_ebus_ids.ps1 PATH_TO_DECODED_FILE "00-007"
+```
+The output is then filtered to only print out the desired eBUS ID:
+<details>
+  <summary>scan output</summary>
+
+```log
+00-007 -> 00870042
+```
+</details>
+
+```ps1
+.\scan_ebus_ids.ps1 PATH_TO_DECODED_FILE "02-07[02]"
+```
+The output is then filtered to only print out the desired eBUS ID:
+<details>
+  <summary>scan output</summary>
+
+```log
+02-070 -> 02c60040
+02-072 -> 02c80040
+```
+</details>
+
 ## Testing ebusd signals
 
 In order to test whether your MQTT broker recieves messages from the ebusd, you can use the tool ``MQTT Explorer``. It can be downloaded [here](https://mqtt-explorer.com/).

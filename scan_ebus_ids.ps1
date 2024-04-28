@@ -1,5 +1,6 @@
 param (
-    [string]$filePathDecoded
+    [string]$filePathDecoded,
+    [string]$filter = "[0-9]{2}-[0-9]{3}"
 )
 
 $firstBlockValue = $null
@@ -12,14 +13,13 @@ Get-Content $filePathDecoded | ForEach-Object {
         $secondBlockValue = $_.Split('=')[1].Split(' ')[0] # get the value after the first equals sign and before the first space
         $secondBlockValue = $secondBlockValue.TrimEnd(',') # remove trailing comma
 
-        if ($dictionary.ContainsKey($secondBlockValue)) {
+        if ($secondBlockValue -match $filter) {
+            if (!$dictionary.ContainsKey($secondBlockValue)) {
+                $dictionary[$secondBlockValue] = New-Object System.Collections.Generic.HashSet[string]
+            } 
             $dictionary[$secondBlockValue].Add($firstBlockValue) | Out-Null
-        } else {
-            $dictionary[$secondBlockValue] = New-Object System.Collections.Generic.HashSet[string]
-            $dictionary[$secondBlockValue].Add($firstBlockValue) | Out-Null
+            $firstBlockValue = $null
         }
-
-        $firstBlockValue = $null
     }
 }
 
