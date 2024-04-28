@@ -10,7 +10,7 @@ You can use every ssh tool for that, I prefer [FileZilla](https://filezilla-proj
 You can create the ebusd container though the following script. The ports may depend on your system.
 
 ```sh
-docker run --name ebusd --restart=always -p 8888:8888 -p 8080:8080 john30/ebusd -d enh:IP_ADDRESS_EBUS_ADAPTER:9999 --latency=10 --configpath=/etc/ebusd/ochsner --pollinterval=5 --mqtthost=IP_ADDRESS_RASPBERRY_PI --mqttport=1883 john30/ebusd:latest
+docker run --name ebusd --restart=always -p 8888 -p 8080 -v /home/pi/data/ebusd_data:/etc/ebusd john30/ebusd:latest -d enh:IP_ADDRESS_EBUS_ADAPTER:9999 --latency=10 --configpath=/etc/ebusd/ochsner --pollinterval=5 --mqtthost=IP_ADDRESS_RASPBERRY_PI --mqttport=1883
 ```
 
 The ``IP_ADDRESS_EBUS_ADAPTER`` need to be replaced by the IP of your eBUS adapter. The ``IP_ADDRESS_RASPBERRY_PI`` need to be replaced by the IP of your raspberry Pi.
