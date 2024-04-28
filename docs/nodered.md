@@ -5,7 +5,7 @@ Node-RED is a programming tool for wiring together hardware devices, APIs and on
 You can create the nodered container though the following script. The ports may depend on your system.
 
 ```sh
-docker run --name nodered --restart=always -e TZ=Europe/Berlin -p 502:502 -p 1880:1880 -p 1883:1883 -p 3671:3671 -p 9522:9522/udp -v /home/pi/data/node_red_data:/data nodered/node-red:latest
+docker run -d --name nodered --restart=always -e TZ=Europe/Berlin -p 502:502 -p 1880:1880 -p 1883:1883 -p 3671:3671 -p 9522:9522/udp -v /home/pi/data/node_red_data:/data nodered/node-red:latest
 ```
 
 >The web UI can be accessed by opening a browser and navigating to ``IP_ADDRESS_RASPBERRY_PI:1880``.

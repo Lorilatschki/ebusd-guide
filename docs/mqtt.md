@@ -6,7 +6,7 @@ The broker is at the heart of the system. It is responsible for receiving all me
 You can create the ebusd container though the following script. The ports may depend on your system.
 
 ```sh
-docker run -d -p 1883:1883 --name mqtt --restart=always -v /home/pi/data/mqtt_data/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto:2
+docker run -d -p 1883:1883 --name mqtt --restart=always -v /home/pi/data/mqtt_data:/mosquitto/config eclipse-mosquitto:2
 ```
 
 The ``mosquitto.conf`` can be changed to your needs, here is a minimal example which I use to allow anonymous communication.
