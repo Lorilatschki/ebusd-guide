@@ -17,7 +17,7 @@ Each environment setup comes with its own detailed guide, including setup instru
   
 - [Docker Centric Setup Guide](./environments/ebusd-nodered-mqtt-portainer-on-docker/environment.md) - Instructions and resources for setting up ebusd on a Raspberry Pi using Docker.  
   
-### Environment B  
+### Home Assistent
   
 - [Home Assistent Setup Guide](./environments/home-assistent/environment.md) - Detailed guide for setting up ebusd in Home Assistent.  
 
