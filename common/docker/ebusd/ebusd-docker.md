@@ -14,3 +14,7 @@ docker run -d --name ebusd --restart=always -p 8888 -p 8080 -v /home/pi/data/ebu
 ```
 
 The ``IP_ADDRESS_EBUS_ADAPTER`` need to be replaced by the IP of your eBUS adapter. The ``IP_ADDRESS_RASPBERRY_PI`` need to be replaced by the IP of your raspberry Pi.
+
+## Adapting ebusd configuration
+
+Adapting ebusd configuration can be found [here](./../../ebusd/ebusd.md)

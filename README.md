@@ -15,7 +15,7 @@ Each environment setup comes with its own detailed guide, including setup instru
   
 ### ebusd, Node-Red, MQTT-Broker and Portainer running on Docker on a Raspberry Pi
   
-- [Docker Centric Setup Guide](./environments/ebusd-nodered-mqtt-portainer-on-docker.md/environment.md) - Instructions and resources for setting up ebusd on a Raspberry Pi using Docker.  
+- [Docker Centric Setup Guide](./environments/ebusd-nodered-mqtt-portainer-on-docker/environment.md) - Instructions and resources for setting up ebusd on a Raspberry Pi using Docker.  
   
 ### Environment B  
   

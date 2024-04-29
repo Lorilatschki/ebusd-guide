@@ -55,9 +55,9 @@ The Docker containers on the Raspberry Pi communicate with each other and with e
 
 The following steps provide a step by step guide to setup such an environment from the scratch.
 
-1) [Raspberry Pi and Docker](./docs/raspberry_pi_docker.md)
-2) [eBUS Adapter Shield v5](./docs/ebus_adapter.md)
-3) [Portainer](./docs/portainer.md)
-4) [MQTT](./docs/mqtt.md)
-5) [ebusd](./docs/ebusd.md)
-6) [Node-RED](./docs/nodered.md)
+1) [Raspberry Pi and Docker](./../../common/raspberry-pi/raspberry-pi-docker.md)
+2) [eBUS Adapter Shield v5](./../../common/ebus-adapter-v5/ebus-adapter-v5.md)
+3) [Portainer](./../../common/docker/portainer/portainer-docker.md)
+4) [MQTT](./../../common/docker/mqtt-broker/mqtt-docker.md)
+5) [ebusd](./../../common/docker/ebusd/ebusd-docker.md)
+6) [Node-RED](./../../common/docker/nodered/nodered-docker.md)
