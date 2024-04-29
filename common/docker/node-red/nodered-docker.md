@@ -24,7 +24,7 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
 
 > The nodered dashboard can be accessed via IP_ADDRESS_RASPBERRY_PI:1880
 
-![image](pictures/mqtt_in.png)
+![image](images/mqtt_in.png)
 
 <details>
   <summary>nodered json export</summary>
@@ -208,7 +208,7 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
  To write a message to a topic, you need to add a ``mqtt out`` element and configure the server. This can be combined to show the current mode of the head bump and make it changeable though a combobox.
  > Notice that you need to add a ``/set`` suffix to the mqtt topic.
 
-![image](pictures/mqtt_out.png)
+![image](images/mqtt_out.png)
 
 <details>
 <summary>nodered json export</summary>
@@ -389,6 +389,6 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
 
 The items on the dashboard look similar to that. I have changed my global css style, that's why it might look different than you used to.
 
-![image](pictures/dashboard1.png)
+![image](images/dashboard1.png)
 
-![image](pictures/dashboard2.png)
+![image](images/dashboard2.png)
