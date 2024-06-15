@@ -10,7 +10,7 @@ To find the correct address in your environment, you need to use the ebusd ``ebu
 1) To connect to the ebusd container via console go to the container in the portainer web UI and click the ``Exec Console`` and click ``Connect``.
 ![image](images/ebusd_console.png)
 2) Switch to your mapped volume via ``cd etc/ebusd/ochsner/``
-3) Run the ``ebusctl grap result all decode >> decode.all.txt`` to write the decode content into the ``etc/ebusd/ochsner/decode.all.txt`` file
+3) Run the ``ebusctl grab result all decode >> decode.all.txt`` to write the decode content into the ``etc/ebusd/ochsner/decode.all.txt`` file
 4) Connect to the raspberry pi via ssh explorer e.g. FileZilla and download the file to you local computer
 5) Open a file viewer e.g. notepad++ and search for the desired eBUS-ID
 6) Search for the eBUS-ID ``05-051`` and look for the TEM_P XXXX= prefix.
