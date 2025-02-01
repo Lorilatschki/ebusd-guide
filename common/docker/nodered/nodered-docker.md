@@ -32,11 +32,12 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
 ```json
 [
     {
-        "id": "902b57b3ac76377f",
+        "id": "c99e01f00a2a2f6d",
         "type": "mqtt in",
         "z": "5051abe90dd1522b",
+        "g": "b139d6d77bec08be",
         "name": "",
-        "topic": "ebusd/24849/mode.heating",
+        "topic": "ebusd/24849/status.heatpump",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "257ca8e2d3ee022c",
@@ -44,18 +45,19 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 370,
-        "y": 920,
+        "x": 380,
+        "y": 300,
         "wires": [
             [
-                "a74c5172a6379827"
+                "fcdcbc8d994f5bbd"
             ]
         ]
     },
     {
-        "id": "a74c5172a6379827",
+        "id": "fcdcbc8d994f5bbd",
         "type": "function",
         "z": "5051abe90dd1522b",
+        "g": "b139d6d77bec08be",
         "name": "convert to string",
         "func": "var split = msg.payload.split(';');\nmsg.payload = split[split.length - 1];\nreturn msg;",
         "outputs": 1,
@@ -65,88 +67,34 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
         "finalize": "",
         "libs": [],
         "x": 700,
-        "y": 920,
+        "y": 300,
         "wires": [
             [
-                "56c277b6547d6426"
+                "4cb6333187b6f777"
             ]
         ]
     },
     {
-        "id": "b6ca43aeb8aa2d43",
-        "type": "mqtt out",
+        "id": "4cb6333187b6f777",
+        "type": "ui_text",
         "z": "5051abe90dd1522b",
-        "name": "",
-        "topic": "ebusd/24849/mode.heating/set",
-        "qos": "2",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "257ca8e2d3ee022c",
-        "x": 1150,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "56c277b6547d6426",
-        "type": "ui_dropdown",
-        "z": "5051abe90dd1522b",
-        "name": "",
+        "g": "b139d6d77bec08be",
+        "group": "fecd30e18aec7909",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "name": "Wärmepumpe Status Control",
         "label": "",
-        "tooltip": "",
-        "place": "",
-        "group": "cad7657ab75b8314",
-        "order": 2,
-        "width": "3",
-        "height": "1",
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "Standbybetrieb",
-                "value": "0",
-                "type": "str"
-            },
-            {
-                "label": "Automatik",
-                "value": "1",
-                "type": "str"
-            },
-            {
-                "label": "Normalbetrieb",
-                "value": "4",
-                "type": "str"
-            },
-            {
-                "label": "Sparbetrieb",
-                "value": "5",
-                "type": "str"
-            },
-            {
-                "label": "Handbetrieb Heizen",
-                "value": "7",
-                "type": "str"
-            },
-            {
-                "label": "Handbetrieb Kühlen",
-                "value": "8",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
         "className": "",
-        "x": 920,
-        "y": 920,
-        "wires": [
-            [
-                "b6ca43aeb8aa2d43"
-            ]
-        ]
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 980,
+        "y": 300,
+        "wires": []
     },
     {
         "id": "257ca8e2d3ee022c",
@@ -180,12 +128,12 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
         "sessionExpiry": ""
     },
     {
-        "id": "cad7657ab75b8314",
+        "id": "fecd30e18aec7909",
         "type": "ui_group",
-        "name": "Heizkreis",
+        "name": "Wärmepumpe",
         "tab": "ef317f27bee1a13c",
-        "order": 2,
-        "disp": true,
+        "order": 1,
+        "disp": false,
         "width": "6",
         "collapse": false,
         "className": ""
@@ -194,8 +142,8 @@ To read a topic from the mqtt broker you need to add a ``mqtt in`` element and c
         "id": "ef317f27bee1a13c",
         "type": "ui_tab",
         "name": "Heizung",
-        "icon": "fa-thermometer-empty",
-        "order": 8,
+        "icon": "mi-heat_pump",
+        "order": 4,
         "disabled": false,
         "hidden": false
     }
